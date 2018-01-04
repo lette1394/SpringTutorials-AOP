@@ -46,7 +46,8 @@ public class Aop {
     public void aroundGame(ProceedingJoinPoint joinPoint) throws Throwable {
         System.out.println("[AROUND] start");
 
-        joinPoint.proceed();
+        Object[] params = new Object[]{new String[]{"새로 사온 게임"}, 50};
+        joinPoint.proceed(params);
 
         System.out.println("[AROUND] end");
     }
