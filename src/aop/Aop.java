@@ -47,7 +47,9 @@ public class Aop {
         System.out.println("[AROUND] start");
 
         Object[] params = new Object[]{new String[]{"새로 사온 게임"}, 50};
-        joinPoint.proceed(params);
+        Object[] notValidParams = new Object[]{new String[]{"새로 사온 게임"}, 10, 10};
+
+        joinPoint.proceed(notValidParams);
 
         System.out.println("[AROUND] end");
     }
