@@ -1,5 +1,6 @@
 package aop;
 
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.aspectj.lang.JoinPoint;
 import java.util.Arrays;
@@ -39,5 +40,11 @@ public class Aop {
     public void afterGameException(JoinPoint joinPoint) {
         System.out.println("[AFTER_THROWING] 윈도우 업데이트를 해야합니다!");
         System.out.println("[AFTER_THROWING] [ABORT] 시스템 종료 취소");
+    }
+
+    @Around("execution(public void aop.Boy.run(String[], int))")
+    public void aroundGame(ProceedingJoinPoint joinPoint) throws Throwable {
+        System.out.println("[AROUND] start");
+        System.out.println("[AROUND] end");
     }
 }
