@@ -20,6 +20,6 @@ public class Boy implements Person {
 
         System.out.println(sb.toString());
 
-        throw new RuntimeException("예외발생");
+        //throw new RuntimeException("예외발생");
     }
 }
