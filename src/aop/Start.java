@@ -8,6 +8,9 @@ public class Start {
         ApplicationContext context = new ClassPathXmlApplicationContext("context.xml");
         Person boy = context.getBean("boy", Person.class);
 
-        boy.run();
+        String[] gameName = {"재미있는 게임", "오래한 게임", "즐거운 게임"};
+        int playTime = 100;
+
+        boy.run(gameName, playTime);
     }
 }
