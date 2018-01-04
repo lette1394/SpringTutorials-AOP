@@ -19,5 +19,7 @@ public class Boy implements Person {
         sb.append("시간 동안 해봐야겠다");
 
         System.out.println(sb.toString());
+
+        throw new RuntimeException("예외발생");
     }
 }

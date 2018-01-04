@@ -1,8 +1,6 @@
 package aop;
 
-import org.aspectj.lang.annotation.After;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.*;
 import org.aspectj.lang.JoinPoint;
 import java.util.Arrays;
 
@@ -30,5 +28,16 @@ public class Aop {
         System.out.println("[AFTER] 게임 로그아웃 중...");
         System.out.println("[AFTER] 게임 종료 중...");
         System.out.println("[AFTER] 시스템 종료 중...");
+    }
+
+    @AfterReturning("execution(public void aop.Boy.run(String[], int))")
+    public void afterGameReturn(JoinPoint joinPoint) {
+        System.out.println("[AFTER_RETURNING] 시스템이 안전하게 종료되었습니다...");
+    }
+
+    @AfterThrowing("execution(public void aop.Boy.run(String[], int))")
+    public void afterGameException(JoinPoint joinPoint) {
+        System.out.println("[AFTER_THROWING] 윈도우 업데이트를 해야합니다!");
+        System.out.println("[AFTER_THROWING] [ABORT] 시스템 종료 취소");
     }
 }
