@@ -45,6 +45,9 @@ public class Aop {
     @Around("execution(public void aop.Boy.run(String[], int))")
     public void aroundGame(ProceedingJoinPoint joinPoint) throws Throwable {
         System.out.println("[AROUND] start");
+
+        joinPoint.proceed();
+
         System.out.println("[AROUND] end");
     }
 }
